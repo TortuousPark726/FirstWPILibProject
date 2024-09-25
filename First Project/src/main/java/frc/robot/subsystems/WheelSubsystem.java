@@ -15,9 +15,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class WheelSubsystem extends SubsystemBase {
     // Thread-safe singleton design pattern.
 
-    private CANSparkMax driving = new CANSparkMax(2, MotorType.kBrushless);
-    private CANSparkMax turning = new CANSparkMax(3, MotorType.kBrushless);
-    private CANcoder sensor = new CANcoder(1);
+    private CANSparkMax driving = new CANSparkMax(3, MotorType.kBrushless);
+    private CANSparkMax turning = new CANSparkMax(2, MotorType.kBrushless);
+    private CANcoder sensor = new CANcoder(10, "swerve");
     
 
     public void setSpeedDrive(double speed)
