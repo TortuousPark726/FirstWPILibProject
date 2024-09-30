@@ -4,7 +4,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.MagnetSensorConfigs;
 import com.ctre.phoenix6.hardware.CANcoder;
+import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
@@ -59,6 +61,9 @@ public class WheelSubsystem extends SubsystemBase {
     /** Creates a new ExampleSubsystem. */
     private WheelSubsystem() {
         super("ExampleSubsystem");
+        MagnetSensorConfigs config = new MagnetSensorConfigs();
+        config.AbsoluteSensorRange = AbsoluteSensorRangeValue.Unsigned_0To1;
+        this.sensor.getConfigurator().apply(config);
     }
 
 
