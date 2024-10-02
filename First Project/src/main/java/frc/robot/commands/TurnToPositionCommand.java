@@ -20,7 +20,7 @@ public class TurnToPositionCommand extends Command {
         this.pos = pos;
         p1 = new PIDController(1, 0, 0);
         
-        p1.setTolerance(3);
+        p1.setTolerance(1);
         p1.enableContinuousInput(0, 360);
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(WheelSubsystem.getInstance());

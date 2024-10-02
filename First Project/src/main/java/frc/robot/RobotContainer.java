@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 
 import frc.robot.commands.DrivingCommand;
+import frc.robot.commands.TurnToPositionCommand;
 import frc.robot.subsystems.WheelSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -46,6 +47,11 @@ public class RobotContainer {
     m_driverController.x().whileTrue(new DrivingCommand(-0.1));
     m_driverController.a().onTrue(new DrivingCommand(0.1));
     m_driverController.b().onTrue(Commands.runOnce(() -> CommandScheduler.getInstance().cancelAll()));
+
+    m_driverController.pov(0).onTrue(new TurnToPositionCommand(0));
+    m_driverController.pov(90).onTrue(new TurnToPositionCommand(90));
+    m_driverController.pov(180).onTrue(new TurnToPositionCommand(180));
+    m_driverController.pov(270).onTrue(new TurnToPositionCommand(270));
     
   }
 
